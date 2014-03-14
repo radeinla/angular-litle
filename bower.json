@@ -1,0 +1,7 @@
+{
+    "name": "angular-litle",
+    "version": "0.0.1",
+    "main": "./angular-litle.js",
+    "dependencies": {
+    }
+}

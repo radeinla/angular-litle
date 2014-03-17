@@ -186,12 +186,15 @@
                         new LitlePayPage().sendToLitle(litleRequest,
                             fields,
                             function(response) {
+                                $rootScope.$broadcast('Litle.sendToLitle.success');
                                 deferred.resolve(response);
                             },
                             function(response) {
+                                $rootScope.$broadcast('Litle.sendToLitle.error');
                                 deferred.reject(response);
                             },
                             function(response) {
+                                $rootScope.$broadcast('Litle.sendToLitle.timeout');
                                 deferred.reject({'timedOut': true});
                             },
                             settings.timeout);

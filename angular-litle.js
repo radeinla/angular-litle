@@ -198,7 +198,7 @@
                                 deferred.reject({'timedOut': true});
                             },
                             settings.timeout);
-                        deferred.promise.then(function(response) {
+                        return deferred.promise.then(function(response) {
                             onSuccess(response);
                         }, function(response) {
                             if (response.timedOut) {

@@ -8,3 +8,10 @@ Changelog
 ============
 - 0.0.4 - IE8 Compatibility fixes
 - 0.0.3 - return promise for sendToLitle call.
+
+Contributors
+=============
+Joan Karla Comandante - IE8 fixes
+Virginia Bustos - IE8 fixes
+Roberta Bustos - angular broadcast
+Reginald Eli Deinla (original author)

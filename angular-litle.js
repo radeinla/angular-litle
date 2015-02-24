@@ -227,19 +227,29 @@
              */
             (function injectScript() {
                 var src           = settings.paypageApiJavascriptUrl,
-                    script        = document.createElement('script');
+                    script        = document.createElement('script'),
+                    done          = false,
+                    initFn        = function() {
+                        flags.sdk = true; // Set sdk global flag
+                        if (typeof new LitlePayPage() == 'object') {
+                            flags.loaded = true;
+                        } else {
+                            flags.loaded = false;
+                        }
+                        $rootScope.$broadcast('Litle:sdk');
+                    };
+
                 script.id     = 'litle-sdk';
                 script.async  = true;
                 script.src = src;
-                script.onload = function() {
-                    flags.sdk = true; // Set sdk global flag
-                    if (typeof new LitlePayPage() == 'object') {
-                        flags.loaded = true;
-                    } else {
-                        flags.loaded = false;
+                script.onload = script.onreadystatechange = function() {
+                    if ( !done && (!this.readyState ||
+                            this.readyState === "loaded" || this.readyState === "complete") ) {
+                        done = true;
+                        initFn();
                     }
-                    $rootScope.$broadcast('Litle:sdk');
                 };
+
                 document.getElementsByTagName('head')[0].appendChild(script);
             })();
         }

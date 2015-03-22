@@ -1,5 +1,26 @@
 {
-    "name": "angular-litle",
-    "version": "0.0.4",
-    "main": "./angular-litle.js"
+  "name": "angular-litle",
+  "version": "0.0.4",
+  "main": "./angular-litle.js",
+  "homepage": "https://github.com/radeinla/angular-litle",
+  "authors": [
+    "radeinla",
+    "ubi",
+    "virg",
+    "kaye"
+  ],
+  "keywords": [
+    "litle",
+    "payment",
+    "angular",
+    "plugin"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
